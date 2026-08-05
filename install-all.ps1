@@ -12,6 +12,11 @@
 #   Or double-click install-all.bat
 # =============================================================================
 
+# =============================================================================
+# Configuration
+# =============================================================================
+$DLIBS_DIR = "dlibs"
+
 # Color definitions
 function Write-Success { Write-Host $args[0] -ForegroundColor Green }
 function Write-Warning { Write-Host $args[0] -ForegroundColor Yellow }
@@ -20,24 +25,24 @@ function Write-Info { Write-Host $args[0] -ForegroundColor Cyan }
 function Write-Normal { Write-Host $args[0] -ForegroundColor White }
 
 Write-Normal ""
-Write-Normal "=========================================="
+Write-Normal "========================================"
 Write-Normal "  Installing all DLibs to local Maven repo"
-Write-Normal "=========================================="
+Write-Normal "========================================"
 Write-Normal ""
 
 # Check if dlibs directory exists
-if (-not (Test-Path "dlibs")) {
-    Write-Error "ERROR: dlibs directory not found."
+if (-not (Test-Path $DLIBS_DIR)) {
+    Write-Error "ERROR: $DLIBS_DIR directory not found."
     Write-Normal "Please run this script from the root of the Libs-JARs repository."
     Read-Host "Press Enter to exit"
     exit 1
 }
 
 # Find all JAR files in dlibs directory
-$jarFiles = Get-ChildItem -Path "dlibs" -Recurse -Filter "*.jar" -File
+$jarFiles = Get-ChildItem -Path $DLIBS_DIR -Recurse -Filter "*.jar" -File
 
 if ($jarFiles.Count -eq 0) {
-    Write-Error "ERROR: No JAR files found in dlibs directory."
+    Write-Error "ERROR: No JAR files found in $DLIBS_DIR directory."
     Read-Host "Press Enter to exit"
     exit 1
 }
@@ -63,17 +68,17 @@ $failCount = 0
 
 foreach ($jarFile in $jarFiles) {
     $pomFile = [System.IO.Path]::ChangeExtension($jarFile.FullName, ".pom")
-    
+
     if (-not (Test-Path $pomFile)) {
-        Write-Warning "WARNING: POM file not found for $($jarFile.Name). Skipping."
+        Write-Warning ("WARNING: POM file not found for " + $jarFile.Name + ". Skipping.")
         $failCount++
         continue
     }
-    
+
     Write-Normal "  Installing: $($jarFile.Name)"
-    
+
     & mvn install:install-file -Dfile="$($jarFile.FullName)" -DpomFile="$pomFile"
-    
+
     if ($LASTEXITCODE -eq 0) {
         Write-Success "  Success"
         $successCount++

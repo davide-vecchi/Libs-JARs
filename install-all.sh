@@ -16,6 +16,11 @@
 
 set -e
 
+# =============================================================================
+# Configuration
+# =============================================================================
+DLIBS_DIR="dlibs"
+
 # Color definitions
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -29,17 +34,17 @@ echo "========================================"
 echo ""
 
 # Check if dlibs directory exists
-if [ ! -d "dlibs" ]; then
-    echo -e "${RED}ERROR: dlibs directory not found.${NC}"
+if [ ! -d "$DLIBS_DIR" ]; then
+    echo -e "${RED}ERROR: $DLIBS_DIR directory not found.${NC}"
     echo "Please run this script from the root of the Libs-JARs repository."
     exit 1
 fi
 
 # Find all JAR files in dlibs directory
-jar_files=$(find dlibs -name "*.jar" -type f)
+jar_files=$(find "$DLIBS_DIR" -name "*.jar" -type f)
 
 if [ -z "$jar_files" ]; then
-    echo -e "${RED}ERROR: No JAR files found in dlibs directory.${NC}"
+    echo -e "${RED}ERROR: No JAR files found in $DLIBS_DIR directory.${NC}"
     exit 1
 fi
 
@@ -60,16 +65,14 @@ echo "Installing JARs..."
 for jar_file in $jar_files; do
     # Find the corresponding POM file (same name, .pom extension)
     pom_file="${jar_file%.jar}.pom"
-    
+
     if [ ! -f "$pom_file" ]; then
         echo -e "${YELLOW}WARNING: POM file not found for $jar_file. Skipping.${NC}"
         continue
     fi
-    
+
     echo "  Installing: $jar_file"
-    mvn install:install-file -Dfile="$jar_file" -DpomFile="$pom_file"
-    
-    if [ $? -eq 0 ]; then
+    if mvn install:install-file -Dfile="$jar_file" -DpomFile="$pom_file"; then
         echo -e "${GREEN}  Success${NC}"
     else
         echo -e "${RED}  Failed${NC}"
