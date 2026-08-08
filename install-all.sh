@@ -3,15 +3,17 @@
 # =============================================================================
 # install-all.sh
 #
-# Installs all DLibs JARs from the Libs-JARs repository into the local Maven
-# repository (~/.m2/repository).
+# Installs all the library JARs from the Libs-JARs repository into the local
+# Maven repository (~/.m2/repository).
+#
+# This script is the Unix counterpart to install-all.ps1. It contains the
+# installation logic directly, without needing a launcher, because Unix-like
+# systems do not have a PowerShell execution policy.
 #
 # This script is intended to be run from the root of the Libs-JARs repository.
 #
-# Usage (from Git Bash):
-#
-#   ./install-all.sh
-#
+# Usage (from any terminal):
+#   - Linux / macOS / Git Bash on Windows: ./install-all.sh
 # =============================================================================
 
 set -e
