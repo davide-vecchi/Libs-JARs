@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>djavalibraries</groupId>
+	<artifactId>dtest</artifactId>
+	<version>2.2.1</version>
+	
+	<properties>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+	</properties>
+	
+	<dependencies>
+		
+		<!-- Beginning of DJavaLibraries . -->
+		
+		<dependency>
+			<groupId>djavalibraries</groupId>
+			<artifactId>dutil</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>djavalibraries</groupId>
+			<artifactId>dlog</artifactId>
+            <version>2.2.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>djavalibraries</groupId>
+			<artifactId>duserinputoutput</artifactId>
+            <version>2.2.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>djavalibraries</groupId>
+			<artifactId>dtestng</artifactId>
+			<version>2.2.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- End of DJavaLibraries . -->
+		
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+	
+	</dependencies>
+	
+	<distributionManagement>
+		
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/davide-vecchi/DTest</url>
+		</repository>
+	
+	</distributionManagement>
+
+</project>
