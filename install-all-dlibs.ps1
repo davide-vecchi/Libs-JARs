@@ -1,5 +1,5 @@
 # =============================================================================
-# install-all.ps1
+# install-all-dlibs.ps1
 #
 # Installs all DLibs JARs from the Libs-JARs repository into the local Maven
 # repository (~/.m2/repository).
@@ -8,18 +8,18 @@
 #
 # IMPORTANT: If you are on Windows and your PowerShell execution policy is set
 # to Restricted (the default on many systems), this script cannot be run
-# directly. Use the launcher script install-all.bat instead, which automatically
+# directly. Use the launcher script install-all-dlibs.bat instead, which automatically
 # bypasses the execution policy for this script.
 #
 # If you run this script directly on Windows and your PowerShell execution policy
 # is set to Restricted, you must either:
-#   - Run it with: powershell -ExecutionPolicy Bypass -File install-all.ps1
+#   - Run it with: powershell -ExecutionPolicy Bypass -File install-all-dlibs.ps1
 #   - Change your execution policy (not recommended for security reasons)
 #
 # Usage:
-#   - From Windows GUI (recommended): double-click install-all.bat
-#   - From Windows PowerShell (if policy allows): .\install-all.ps1
-#   - From Windows GUI (if policy allows): right-click install-all.ps1 and
+#   - From Windows GUI (recommended): double-click install-all-dlibs.bat
+#   - From Windows PowerShell (if policy allows): .\install-all-dlibs.ps1
+#   - From Windows GUI (if policy allows): right-click install-all-dlibs.ps1 and
 #     choose "Run with PowerShell".
 # =============================================================================
 

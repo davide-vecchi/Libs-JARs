@@ -1,8 +1,8 @@
 @ECHO OFF
 REM ============================================================================
-REM install-all.bat
+REM install-all-dlibs.bat
 REM
-REM Launcher for install-all.ps1
+REM Launcher for install-all-dlibs.ps1
 REM
 REM Usage: Double-click this file, or run from Command Prompt.
 REM ============================================================================
@@ -24,5 +24,5 @@ IF NOT DEFINED PS_EXE (
 	EXIT /B 1
 )
 
-%PS_EXE% -NoProfile -ExecutionPolicy Bypass -File "%~dp0install-all.ps1"
+%PS_EXE% -NoProfile -ExecutionPolicy Bypass -File "%~dp0install-all-dlibs.ps1"
 PAUSE
