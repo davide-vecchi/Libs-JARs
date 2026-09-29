@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>djavalibraries</groupId>
-    <artifactId>dapplication</artifactId>
-    <version>2.3.0</version>
+	<artifactId>duserinputoutput</artifactId>
+	<version>2.3.0</version>
     
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <lombok.version>1.18.48</lombok.version>
     </properties>
     
@@ -22,37 +22,33 @@
         
         <dependency>
             <groupId>djavalibraries</groupId>
-            <artifactId>dutil</artifactId>
-            <version>2.3.0</version>
+			<artifactId>dutil</artifactId>
+			<version>2.3.0</version>
         </dependency>
         
+		<!-- End of DJavaLibraries -->
+        
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
-            <groupId>djavalibraries</groupId>
-            <artifactId>duserinputoutput</artifactId>
-            <version>2.3.0</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.12.0</version>
+            <scope>test</scope>
         </dependency>
-        
-        <dependency>
-            <groupId>djavalibraries</groupId>
-            <artifactId>dlog</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        
-        <!-- End of DJavaLibraries -->
-        
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.20.0</version>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>3.1.1</version>
-        </dependency>
+		
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.20.0</version>
+		</dependency>
         
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -62,27 +58,24 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>2.4.3</version>
+        </dependency>
+
     </dependencies>
-	
-	<distributionManagement>
-		
-		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/davide-vecchi/DApplication</url>
-		</repository>
-	
-	</distributionManagement>
     
     <build>
         <plugins>
             <plugin>
-				<!-- Without this, the build fails on Mac {2026-01-15 Davide} : -->
+                <!-- Without this, the build fails on Mac {2026-01-15 Davide} : -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+					<encoding>UTF-8</encoding>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -94,5 +87,15 @@
             </plugin>
         </plugins>
     </build>
-
+	
+	<distributionManagement>
+		
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/davide-vecchi/DUserInputOutput</url>
+		</repository>
+	
+	</distributionManagement>
+ 
 </project>
